@@ -22,6 +22,8 @@ function playSong(index) {
   musicas[currentSongIndex].play();
   // Atualiza a imagem do botão de reprodução/pausa
   botaoReproduzir.src = 'src/imgs/pause.png';
+  // Atualiza o event listener 'timeupdate'
+  updateProgressBar();
 }
 
 // Adicionar event listeners aos botões de controle
@@ -49,26 +51,33 @@ backButton.addEventListener('click', () => {
 
 const progressBar = document.querySelector('#timeMusica');
 
-// Atualizar a posição da barra de progresso conforme a música é reproduzida
-musicas[currentSongIndex].addEventListener('timeupdate', () => {
-  const currentTime = musicas[currentSongIndex].currentTime;
-  const duration = musicas[currentSongIndex].duration;
-  
-  // Calcular a porcentagem da música reproduzida
-  const progress = (currentTime / duration) * 100;
-  
-  // Atualizar o valor da barra de progresso
-  progressBar.value = progress;
-});
+// Função para atualizar a barra de progresso conforme a música é reproduzida
+function updateProgressBar() {
+  musicas[currentSongIndex].addEventListener('timeupdate', () => {
+    if (!musicas[currentSongIndex].paused && !isNaN(musicas[currentSongIndex].duration)) {
+      const currentTime = musicas[currentSongIndex].currentTime;
+      const duration = musicas[currentSongIndex].duration;
+
+      // Calcular a porcentagem da música reproduzida
+      const progress = (currentTime / duration) * 100;
+
+      // Atualizar o valor da barra de progresso
+      progressBar.value = progress;
+    }
+  });
+}
 
 // Adicionar um event listener para a barra de progresso para permitir que o usuário mude a posição da música
 progressBar.addEventListener('input', () => {
   const progress = progressBar.value;
   const duration = musicas[currentSongIndex].duration;
-  
+
   // Calcular o novo tempo da música com base na posição da barra de progresso
   const newTime = (progress / 100) * duration;
-  
+
   // Definir o novo tempo da música
   musicas[currentSongIndex].currentTime = newTime;
 });
+
+// Atualiza o event listener 'timeupdate' para a música atual
+updateProgressBar();
