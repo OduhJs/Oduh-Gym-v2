@@ -31,14 +31,27 @@ header .name {
 }
 
 .player {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-style: normal;
   color: gray;
   border: solid gray 4.5px;
   border-radius: 15px;
   min-width: 30%;
   max-width: 90%;
+}
+
+.ClickControle {
+  animation: ClickControle 3s ease-in-out;
+}
+
+@keyframes ClickControle {
+  0% {
+    filter: drop-shadow(0 0 0 gray) invert(50%);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px gray) invert(30%);
+  }
+  100% {
+    filter: drop-shadow(0 0 0 gray) invert(50%);
+  }
 }
 
 .control {
@@ -138,5 +151,3 @@ input[type="range"] {
   }
   
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
