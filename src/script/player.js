@@ -1,10 +1,23 @@
 // Constantes
-const playButton = document.querySelector('.play.control.ControlePlayPause');
-const nextButton = document.querySelector('.next.control');
-const backButton = document.querySelector('.back.control');
+const BotaoPlay = document.querySelector('.play.control.ControlePlayPause');
+const BotaoPular = document.querySelector('.next.control');
+const BotaoVoltar = document.querySelector('.back.control');
 const musicas = document.querySelectorAll('.musicas audio');
 const botaoReproduzir = document.querySelector('.play.control.ControlePlayPause');
 let currentSongIndex = 0;
+
+const PlayerLink = document.querySelector('.player__link');
+
+PlayerLink.addEventListener("click", () => {
+  window.open('https://open.spotify.com/playlist/2KFjIcSuAZxXaZAbet7FcN?si=piwnyrB-TKaILSxm9s5ILQ&utm_source=copy-link');
+});
+
+function ClickControle(NomeBotao) {
+  NomeBotao.classList.add('ClickControle');
+  setTimeout(() => {
+    NomeBotao.classList.remove('ClickControle');
+  }, 3000);
+};
 
 // Função para reiniciar a música atual
 function resetSong() {
@@ -27,23 +40,26 @@ function playSong(index) {
 }
 
 // Adicionar event listeners aos botões de controle
-playButton.addEventListener('click', () => {
+BotaoPlay.addEventListener('click', () => {
   if (musicas[currentSongIndex].paused) {
     musicas[currentSongIndex].play();
-    playButton.src = 'src/imgs/pause.png';
+    BotaoPlay.src = 'src/imgs/pause.png';
   } else {
     musicas[currentSongIndex].pause();
-    playButton.src = 'src/imgs/play.png';
+    BotaoPlay.src = 'src/imgs/play.png';
   }
+  ClickControle(BotaoPlay);
 });
 
-nextButton.addEventListener('click', () => {
+BotaoPular.addEventListener('click', () => {
+  ClickControle(BotaoPular);
   resetSong();
   const nextSongIndex = (currentSongIndex + 1) % musicas.length;
   playSong(nextSongIndex);
 });
 
-backButton.addEventListener('click', () => {
+BotaoVoltar.addEventListener('click', () => {
+  ClickControle(BotaoVoltar);
   resetSong();
   const prevSongIndex = (currentSongIndex - 1 + musicas.length) % musicas.length;
   playSong(prevSongIndex);
