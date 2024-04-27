@@ -74,7 +74,7 @@ input[type="range"] {
   border-radius: 5px;
   
   /* style the range thumb */
-  &::-webkit-slider-thumb {
+  :&:-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
@@ -130,11 +130,11 @@ input[type="range"] {
 @media screen and (min-width: 768px) {
   .face {
     margin-top: 8%;
-    width: 95%;
+    width: 75%;
   }
   
   .name {
-    width: 100%;
+    width: 80%;
   }
   
   .player {
