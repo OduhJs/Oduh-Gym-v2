@@ -149,6 +149,7 @@ input[type="range"] {
     text-align: center;
     width: 22%;
     height: 23%;
+    padding: 8px;
   }
   
   .control {
