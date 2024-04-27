@@ -131,11 +131,11 @@ input[type="range"] {
 @media screen and (min-width: 768px) {
   .face {
     margin-top: 8%;
-    width: 75%;
+    width: 70%;
   }
   
   .name {
-    width: 80%;
+    width: 75%;
   }
   
   .player {
