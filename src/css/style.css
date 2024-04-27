@@ -1,4 +1,5 @@
 * {
+  font-family: Arial, Bold;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -138,7 +139,7 @@ input[type="range"] {
   }
   
   .player {
-    font-size: 2vh;
+    font-size: 2.5vh;
     align-content: center;
     margin: auto auto;
     text-align: center;
