@@ -130,7 +130,7 @@ input[type="range"] {
 /* Css para pc e tablet */
 @media screen and (min-width: 768px) {
   .face {
-    margin-top: 8%;
+    margin-top: 4%;
     width: 70%;
   }
   
