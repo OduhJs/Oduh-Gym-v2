@@ -129,6 +129,10 @@ input[type="range"] {
 
 /* Css para pc e tablet */
 @media screen and (min-width: 768px) {
+  body {
+    padding: 0;
+  }
+
   .face {
     margin-top: 4%;
     width: 70%;
